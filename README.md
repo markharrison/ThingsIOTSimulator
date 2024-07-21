@@ -70,30 +70,33 @@ The following environment variables are optional:
 
 Then from the command line run:
 
-```
+```bash
 dotnet run
 ```
 
 You can also build a Docker image using the included Dockerfile such as: 
 
-```
+```bash
 docker build --rm -f Dockerfile -t alarmsiotsimulator:latest
 ```
 
 The [image is available on DockerHub](https://hub.docker.com/r/markharrison/alarmsiotsimulator/) to use immediately. To pass the environment variables into the docker container you can use the following:
 
-```
-docker run -e AlarmTopicEndpoint="[TOPIC URL]" -e AlarmKey="[TOPIC KEY]" -e AlarmImageRoot="[IMAGES ROOT URL]" markharrison/alarmsiotsimulator
+```bash
+docker run -e AlarmTopicEndpoint="[TOPIC URL]" -e AlarmKey="[TOPIC KEY]" \
+    -e AlarmImageRoot="[IMAGES ROOT URL]" markharrison/alarmsiotsimulator
 ```
 
 To run in Azure Container Instance via the Azure CLI or command shell:
 
-```
-az container create --resource-group [RESOURCE GROUP] --name [NAME] --image markharrison/alarmsiotsimulator --restart-policy Never --environment-variables AlarmTopicEndpoint=[TOPIC URL] AlarmKey=[TOPIC KEY] AlarmImageRoot=[IMAGES ROOT URL]
+```bash
+az container create --resource-group [RESOURCE GROUP] --name [NAME] \
+    --image markharrison/alarmsiotsimulator --restart-policy Never \
+    --environment-variables AlarmTopicEndpoint=[TOPIC URL] AlarmKey=[TOPIC KEY] AlarmImageRoot=[IMAGES ROOT URL]
 ```
 
 To stop and delete in Azure Container Instance via the Azure CLI or command shell:
 
-```
+```bash
 az container delete --name [NAME] -g [RESOURCE GROUP]
 ```
