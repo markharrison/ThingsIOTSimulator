@@ -92,7 +92,8 @@ To run in Azure Container Instance via the Azure CLI or command shell:
 ```bash
 az container create --resource-group [RESOURCE GROUP] --name [NAME] \
     --image markharrison/alarmsiotsimulator --restart-policy Never \
-    --environment-variables AlarmTopicEndpoint=[TOPIC URL] AlarmKey=[TOPIC KEY] AlarmImageRoot=[IMAGES ROOT URL]
+    --environment-variables AlarmTopicEndpoint=[TOPIC URL] AlarmKey=[TOPIC KEY] \
+        AlarmImageRoot=[IMAGES ROOT URL]
 ```
 
 To stop and delete in Azure Container Instance via the Azure CLI or command shell:
